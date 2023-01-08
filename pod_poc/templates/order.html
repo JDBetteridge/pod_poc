@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/w3.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <title>Order</title>
+</head>
+
+<body>
+    <!-- Item Form -->
+    <div class="w3-cell-row w3-mobile">
+        <div class="w3-cell w3-mobile">
+            <form action="delivery_note" method="post" class="w3-padding">
+                <div class="w3-row w3-section">
+                    <label for="item">Item:</label>
+                    <input style="width:80%" class="w3-bar-item w3-input w3-border w3-round" type="text" placeholder="Conduit" name="item" autofocus>
+
+                    <label for="quantity">Quantity:</label>
+                    <input style="width:20%" class="w3-bar-item w3-input w3-border w3-round" type="text" placeholder="0" name="quantity" autofocus>
+
+                    <label for="price">Price (GBP):</label>
+                    <input style="width:20%" class="w3-bar-item w3-input w3-border w3-round" type="text" placeholder="0.00" name="price" autofocus>
+
+                    <button style="width:20%" class="w3-bar-item w3-button w3-blue w3-border w3-round w3-right" type="submit" value="Enter">
+                        <i class="fa fa-arrow-right w3-large"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

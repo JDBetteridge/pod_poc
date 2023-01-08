@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/w3.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <title>Delivery note</title>
+</head>
+<body>
+    <h1>Delivery Note</h1>
+    Return to <a href="/">homepage</a>
+    <div class="w3-row">
+        <div class="w3-half w3-container">
+            <div class="w3-left-align">
+            <img src="data:image/png;base64,{{ qr }}"/>
+            <p>{{ order_id }}</p>
+        </div>
+    </div>
+    <div class="w3-half w3-container">
+        <h2>Address:</h2>
+        <p>Surgery Centre</p>
+        <p>12345 Medical Building</p>
+        <p>County</p>
+        <p>XY1 0AB</p>
+    </div>
+    </div>
+    <div class="w3-container">
+    <h2>Delivery</h2>
+    <table class="w3-table w3-striped">
+        <tr>
+            <th>Item</th>
+            <th></th>
+            <th class="w3-right-align">Quantity</th>
+            <th class="w3-right-align">Price</th>
+            <th class="w3-right-align">Total</th>
+        </tr>
+        <tr>
+            <td>{{ item["name"] }}</td>
+            <td></td>
+            <td class="w3-right-align">{{ item["quantity"] }}</td>
+            <td class="w3-right-align">{{ "£%.2f"%(item["price"]) }}</td>
+            <td class="w3-right-align">{{ "£%.2f"%(item["quantity"]*item["price"]) }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Delivery</td>
+            <td class="w3-right-align"></td>
+            <td class="w3-right-align"></td>
+            <td class="w3-right-align">£12.00</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Subtotal</td>
+            <td class="w3-right-align"></td>
+            <td class="w3-right-align"></td>
+            <td class="w3-right-align">{{ "£%.2f"%(item["quantity"]*item["price"] + 12) }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>VAT @ 20%</td>
+            <td class="w3-right-align"></td>
+            <td class="w3-right-align"></td>
+            <td class="w3-right-align">{{ "£%.2f"%((item["quantity"]*item["price"] + 12)*0.2) }}</td>
+        </tr>
+        <tr>
+            <b>
+            <th></th>
+            <th>Total</th>
+            <th class="w3-right-align"></th>
+            <th class="w3-right-align"></th>
+            <th class="w3-right-align">{{ "£%.2f"%((item["quantity"]*item["price"] + 12)*1.2) }}</th>
+            </b>
+        </tr>
+    </table>
+    </div>
+</body>
