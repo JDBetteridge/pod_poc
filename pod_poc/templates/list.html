@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/css/w3.css">
-    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
-    <title>Listing</title>
-</head>
-<body>
-    <h1>Delivery logs</h1>
-    Return to <a href="/">homepage</a>
-    <table class="w3-table w3-striped">
-        <tr>
-            <th>Date</th>
-            <th>Raw</th>
-        </tr>
-        {% for file in csvfiles %}
-        <tr>
-            <td><a href="list/{{ file.name }}">{{ file.name }}</a></td>
-            <td><a href="list/raw/{{ file.name }}">raw</a></td>
-        </tr>
-        {% endfor %}
-    </table>
-</body>
+{% extends "base.html" %}
+{% block title %}Logs{% endblock %}
+{% block heading %}Delivery logs{% endblock %}
+{% block content %}
+<table class="w3-table w3-striped">
+  <tr>
+    <th>Date</th>
+    <th>Raw</th>
+  </tr>
+  {% for file in csvfiles %}
+  <tr>
+    <td><a href="list/{{ file.name }}">{{ file.name }}</a></td>
+    <td><a href="list/raw/{{ file.name }}">raw</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

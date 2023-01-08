@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/css/w3.css">
-    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
-    <title>Proof of Delivery</title>
-</head>
-<body>
-    <h1>Landing page</h1>
-    <p>Proof of concept proof of delivery webpage.</p>
-    <p><a href="order">Place Order</a></p>
-    <p><a href="search">Confirm Delivery (search)</a></p>
-    <p><a href="list">View Deliveries</a></p>
-</body>
+{% extends "base.html" %}
+{% block title %}Proof of Delivery{% endblock %}
+{% block heading %}Proof of Delivery service{% endblock %}
+{% block content %}
+<p>Proof of concept proof of delivery webpage.</p>
+<div class="w3-container" style="max-width:800px;margin:auto">
+  <p><a class="w3-button w3-block w3-margin-bottom w3-round w3-border w3-border-black w3-hover-shadow" href="order">Place Order</a></p>
+  <p><a class="w3-button w3-block w3-margin-bottom w3-round w3-border w3-border-black w3-hover-shadow" href="search">Confirm Delivery (search)</a></p>
+  <p><a class="w3-button w3-block w3-margin-bottom w3-round w3-border w3-border-black w3-hover-shadow" href="list">View Deliveries</a></p>
+</div>
+{% endblock %}

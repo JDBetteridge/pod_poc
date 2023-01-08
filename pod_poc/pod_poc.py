@@ -38,7 +38,7 @@ def search():
 @pod.route("/confirm/<order_number>", methods=["GET", "POST"])
 def confirm(order_number=None):
     if request.method == "POST":
-        if request.form["delivered"]:
+        if request.form.get("delivered"):
             log_delivery(order_number)
             return redirect(url_for("success"))
         else:
