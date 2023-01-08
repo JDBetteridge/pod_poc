@@ -22,7 +22,10 @@ def order():
 
 @pod.route("/delivery_note", methods=["POST"])
 def delivery_note():
-    order = process_form(request.form)
+    try:
+        order = process_form(request.form)
+    except:
+        return render_template("order.html")
     site = f"http://{host}:{port}/confirm/{order['id']}"
     qr = generate_qr(site)
     return render_template("delivery_note.html", item=order, qr=qr, order_id=site)
@@ -30,8 +33,11 @@ def delivery_note():
 @pod.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
-        order_number = int(request.form["string"])
-        return redirect(f"/confirm/{order_number}")
+        try:
+            order_number = int(request.form["string"])
+            return redirect(f"/confirm/{order_number}")
+        except:
+            return render_template("search_order.html")
     else:
         return render_template("search_order.html")
 
