@@ -26,4 +26,4 @@ def log_delivery(order_number):
 
 def get_log():
     path = os.path.join(os.getcwd(), "log", "*.csv")
-    return [Path(f) for f in glob(path)]
+    return [Path(f) for f in reversed(sorted(glob(path)))]
